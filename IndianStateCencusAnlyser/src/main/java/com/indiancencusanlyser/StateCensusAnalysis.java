@@ -27,7 +27,7 @@ public class StateCensusAnalysis {
 	 * 5. Throw Custom exception
 	 * 6. Invalid Type of records
 	 */
-	public void loadData(String filePath) throws IncorrectFileException {
+	public void loadData(String filePath) throws IncorrectFileException,InvalidDelimiter {
 		try {
 			/**
 			 * parsing a CSV file into CSVReader class constructor
@@ -37,6 +37,8 @@ public class StateCensusAnalysis {
 			record = reader.readNext();
 
 			while ((record = reader.readNext()) != null) {
+				if(record.length != 4)
+					throw new InvalidDelimiter();
 				censusData.add(new CSVStateCensus(record[0], Long.parseLong(record[1]), Integer.parseInt(record[2]),
 						Double.parseDouble(record[3])));
 			}

@@ -22,18 +22,23 @@ public class AppTest {
 	}
 
 	@Test
-	public void testRecordMatch() throws IncorrectFileException {
+	public void testRecordMatch() throws IncorrectFileException,InvalidDelimiter {
 		analyser.loadData("src/main/resources/IndianStateCensus.csv");
 		assertEquals(true, analyser.checkData());
 	}
 
 	@Test
-	public void testFileCheckSad() throws IncorrectFileException {
+	public void testFileCheckSad() throws IncorrectFileException, InvalidDelimiter {
 		analyser.loadData("src/main/resources/IndianStateCensus.csv");
 	}
 	
 	@Test
-	public void testTypeCheckSad() throws IncorrectFileException {
+	public void testTypeCheckSad() throws IncorrectFileException, InvalidDelimiter {
+		analyser.loadData("src/main/resources/IndiaStateCensusDataWrong.csv");
+	}
+	
+	@Test
+	public void testDelimiterCheckSad() throws IncorrectFileException, InvalidDelimiter {
 		analyser.loadData("src/main/resources/IndiaStateCensusDataWrong.csv");
 	}
 }
