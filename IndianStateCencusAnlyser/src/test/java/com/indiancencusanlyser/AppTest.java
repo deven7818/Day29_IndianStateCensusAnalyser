@@ -7,22 +7,28 @@ import org.junit.Test;
 
 /**
  * Test Cases
+ * 
  * @author Asus
  *
  */
 
 public class AppTest {
-	
+
 	StateCensusAnalysis analyser;
-	
+
 	@Before
 	public void initialization() {
 		analyser = new StateCensusAnalysis();
 	}
-	
+
 	@Test
-	public void testRecordMatch() {
-		analyser.loadData();
+	public void testRecordMatch() throws IncorrectFileException {
+		analyser.loadData("src/main/resources/IndianStateCensus.csv");
 		assertEquals(true, analyser.checkData());
+	}
+
+	@Test
+	public void testFileCheckSad() throws IncorrectFileException {
+		analyser.loadData("src/main/resources/IndianStateCensus.csv");
 	}
 }

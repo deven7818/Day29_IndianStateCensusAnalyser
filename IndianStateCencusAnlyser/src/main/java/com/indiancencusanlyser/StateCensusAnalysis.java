@@ -10,6 +10,7 @@ import com.opencsv.exceptions.CsvValidationException;
 
 /**
  * Class to read the CSV file
+ * 
  * @author Asus
  *
  */
@@ -18,13 +19,13 @@ public class StateCensusAnalysis {
 	ArrayList<CSVStateCensus> censusData = new ArrayList<CSVStateCensus>();
 
 	/**
-	 * Method to load data and display as CSV
-	 * 1. The CSVReader class is used to read a CSV file. The class provides CSVReader class constructor to parse a CSV file.
-	 * 2. Using a while loop to read the file line by line.
+	 * Method to load data and display as CSV 
+	 * 1. The CSVReader class is used to read file. 
+	 * 2. Using a while loop to read the file line by line. 
 	 * 3. Adding the data to the list.
 	 * 4. Display the list.
 	 */
-	public void loadData() {
+	public void loadData(String filePath) throws IncorrectFileException {
 		try {
 			/**
 			 * parsing a CSV file into CSVReader class constructor
@@ -37,11 +38,9 @@ public class StateCensusAnalysis {
 				censusData.add(new CSVStateCensus(record[0], Long.parseLong(record[1]), Integer.parseInt(record[2]),
 						Double.parseDouble(record[3])));
 			}
-			for (CSVStateCensus data : censusData) {
-				System.out.println(data);
-			}
+
 		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
+			throw new IncorrectFileException("This is an invalid file");
 		} catch (CsvValidationException ex) {
 			ex.printStackTrace();
 		} catch (IOException ex) {
