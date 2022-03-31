@@ -65,4 +65,13 @@ public class StateCensusAnalysis {
 			return true;
 		return false;
 	}
+	/**
+	 *  Method to check header if incorrect
+	 * @param record - pass the  record
+	 * @return -  return true or false
+	 */
+	public boolean checkHeader(String[] record) {
+		return (record[0].compareTo("State") + record[1].compareTo("Population") + record[2].compareTo("AreaInSqKm")
+				+ record[3].compareTo("DensityPerSqKm") == 0);
+	}
 }

@@ -41,4 +41,10 @@ public class AppTest {
 	public void testDelimiterCheckSad() throws IncorrectFileException, InvalidDelimiter {
 		analyser.loadData("src/main/resources/IndiaStateCensusDataWrong.csv");
 	}
+	
+
+	@Test
+	public void testHeaderCheckSad() throws IncorrectFileException, InvalidDelimiter {
+		analyser.loadData("src/main/resources/IndiaStateCensusDataWrongHeader.csv");
+	}
 }
