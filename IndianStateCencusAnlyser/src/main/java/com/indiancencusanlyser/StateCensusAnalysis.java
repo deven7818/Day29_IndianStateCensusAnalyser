@@ -24,6 +24,8 @@ public class StateCensusAnalysis {
 	 * 2. Using a while loop to read the file line by line. 
 	 * 3. Adding the data to the list.
 	 * 4. Display the list.
+	 * 5. Throw Custom exception
+	 * 6. Invalid Type of records
 	 */
 	public void loadData(String filePath) throws IncorrectFileException {
 		try {
@@ -45,6 +47,8 @@ public class StateCensusAnalysis {
 			ex.printStackTrace();
 		} catch (IOException ex) {
 			ex.printStackTrace();
+		}catch(NumberFormatException ex) {
+			throw new IncorrectFileException("This is invalid type of record ");
 		}
 
 	}
@@ -52,10 +56,10 @@ public class StateCensusAnalysis {
 	/**
 	 * Checking the size of the list to check if we have all the entries.
 	 * 
-	 * @return - true if sized is 29
+	 * @return - true if sized is 30
 	 */
 	public boolean checkData() {
-		if (censusData.size() == 29)
+		if (censusData.size() == 30)
 			return true;
 		return false;
 	}

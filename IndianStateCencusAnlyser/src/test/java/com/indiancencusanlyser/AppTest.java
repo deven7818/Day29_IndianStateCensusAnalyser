@@ -31,4 +31,9 @@ public class AppTest {
 	public void testFileCheckSad() throws IncorrectFileException {
 		analyser.loadData("src/main/resources/IndianStateCensus.csv");
 	}
+	
+	@Test
+	public void testTypeCheckSad() throws IncorrectFileException {
+		analyser.loadData("src/main/resources/IndiaStateCensusDataWrong.csv");
+	}
 }
