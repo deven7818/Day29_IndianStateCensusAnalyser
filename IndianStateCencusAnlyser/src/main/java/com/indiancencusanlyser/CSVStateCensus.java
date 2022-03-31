@@ -1,5 +1,6 @@
 package com.indiancencusanlyser;
 
+
 public class CSVStateCensus {
 	String state;
 	long population;
